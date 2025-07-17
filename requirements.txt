@@ -2,9 +2,8 @@ streamlit
 easyocr
 Pillow
 numpy
-summarizer
-youtube_transcript_api
 transformers
+youtube_transcript_api
 requests
 pytube
 spacy
