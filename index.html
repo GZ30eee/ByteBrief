@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ByteBrief — Multi‑Modal Hybrid AI Summarization Suite</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            void: '#F8FAFC',
+            panel: '#FFFFFF',
+            panelborder: '#E2E8F0',
+            pastelpeach: '#D97706',
+            pastellavender: '#7C3AED',
+            pastelblue: '#0284C7',
+            pastelgreen: '#059669',
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          },
+          animation: {
+            'float-slow': 'float 8s ease-in-out infinite',
+            'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+              '50%': { transform: 'translateY(-10px) rotate(0.5deg)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: '0.4' },
+              '50%': { opacity: '0.7' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@400;600;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    .glass-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+    }
+    .mesh-gradient {
+      background-image: radial-gradient(at 10% 20%, rgba(217, 119, 6, 0.06) 0px, transparent 50%),
+                        radial-gradient(at 90% 80%, rgba(124, 58, 237, 0.06) 0px, transparent 50%),
+                        radial-gradient(at 50% 50%, rgba(2, 132, 199, 0.04) 0px, transparent 50%);
+    }
+  </style>
+</head>
+<body class="bg-void text-slate-800 font-sans antialiased selection:bg-amber-200 selection:text-slate-900 min-h-screen relative overflow-x-hidden mesh-gradient">
+
+  <!-- Soft Ambient Background Blobs -->
+  <div class="absolute top-10 left-1/4 w-[500px] h-[500px] bg-amber-200/40 blur-[180px] rounded-full pointer-events-none animate-pulse-glow"></div>
+  <div class="absolute top-1/2 right-10 w-[600px] h-[600px] bg-purple-200/40 blur-[200px] rounded-full pointer-events-none animate-pulse-glow"></div>
+
+  <!-- Floating Navigation Bar -->
+  <nav class="relative z-30 max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
+    <div class="flex items-center space-x-3 group cursor-pointer">
+      <div>
+        <span class="text-2xl font-black font-display tracking-tight text-slate-900">ByteBrief</span>
+        <span class="block text-[10px] text-slate-500 font-mono tracking-widest uppercase">Soft-Palette AI Engine</span>
+      </div>
+    </div>
+    
+    <div class="flex items-center space-x-3">
+      <a href="app/main.py" class="hidden sm:inline-flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white text-sm font-bold shadow-lg shadow-amber-600/20 transition-all duration-300 hover:scale-105">
+        <i class="fa-solid fa-play text-xs"></i>
+        <span>Launch App</span>
+      </a>
+      <a href="https://github.com/GZ30eee/bytebrief" target="_blank" class="w-11 h-11 rounded-xl bg-panel hover:bg-slate-100 flex items-center justify-center text-slate-700 border border-panelborder transition-all duration-300 shadow-sm">
+        <i class="fa-brands fa-github text-lg"></i>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Asymmetrical Hero Section -->
+  <header class="relative z-20 max-w-7xl mx-auto px-6 pt-12 pb-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    
+    <!-- Left Column: Impact Content -->
+    <div class="lg:col-span-7 space-y-8 text-left">
+      <div class="inline-flex items-center space-x-3 px-4 py-2 rounded-full bg-panel border border-panelborder text-xs font-semibold shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span class="text-emerald-700 font-mono">Hybrid Architecture v2.4</span>
+        <span class="text-slate-300">|</span>
+        <span class="text-slate-600">BERT Extractive + BART Abstractive</span>
+      </div>
+
+      <h1 class="text-5xl sm:text-6xl xl:text-7xl font-black font-display tracking-tight text-slate-900 leading-[1.08]">
+        Condense Hours of Media Into <span class="bg-gradient-to-r from-amber-600 via-purple-600 to-sky-600 bg-clip-text text-transparent">Seconds of Clarity</span>
+      </h1>
+
+      <p class="text-lg text-slate-600 font-normal leading-relaxed max-w-xl">
+        A next-generation enterprise summarization pipeline that digests dense technical documentation, YouTube videos, audio feeds, and scanned images with elite analytical precision.
+      </p>
+
+      <div class="flex flex-wrap items-center gap-4 pt-2">
+        <a href="app/main.py" class="inline-flex items-center px-8 py-4 rounded-2xl bg-gradient-to-r from-amber-600 to-purple-600 text-white font-bold text-base shadow-xl shadow-amber-600/20 transition-all duration-300 hover:scale-105">
+          <i class="fa-solid fa-rocket mr-3"></i> Try Live Demo Now
+        </a>
+        <a href="#pipeline" class="inline-flex items-center px-8 py-4 rounded-2xl bg-panel hover:bg-slate-100 text-slate-700 font-semibold text-base border border-panelborder transition-all duration-300 shadow-sm">
+          <i class="fa-solid fa-arrow-down mr-2 text-amber-600"></i> Explore Pipeline
+        </a>
+      </div>
+
+      <!-- Live Metric Counter Row -->
+      <div class="grid grid-cols-3 gap-6 pt-6 border-t border-panelborder">
+        <div>
+          <p class="text-2xl sm:text-3xl font-black font-display text-slate-900">10x</p>
+          <p class="text-xs text-slate-500 mt-0.5">Faster Context Extraction</p>
+        </div>
+        <div>
+          <p class="text-2xl sm:text-3xl font-black font-display text-amber-600">0.85</p>
+          <p class="text-xs text-slate-500 mt-0.5">BERTScore F1 Rating</p>
+        </div>
+        <div>
+          <p class="text-2xl sm:text-3xl font-black font-display text-sky-600">100%</p>
+          <p class="text-xs text-slate-500 mt-0.5">Open Source Codebase</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Interactive Animated Showcase Card -->
+    <div class="lg:col-span-5 relative">
+      <div class="absolute -inset-1 bg-gradient-to-r from-amber-400 to-purple-400 rounded-[32px] blur-xl opacity-20 animate-float-slow"></div>
+      
+      <div class="relative glass-card rounded-[30px] p-8 border border-panelborder shadow-xl space-y-6">
+        <div class="flex items-center justify-between pb-4 border-b border-panelborder">
+          <div class="flex items-center space-x-2">
+            <div class="w-3 h-3 rounded-full bg-red-400"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+            <div class="w-3 h-3 rounded-full bg-green-400"></div>
+          </div>
+          <span class="text-xs font-mono text-slate-500">bytebrief_engine.py</span>
+        </div>
+
+        <div class="space-y-4 font-mono text-xs">
+          <div class="p-3.5 rounded-xl bg-slate-50 border border-panelborder flex items-center justify-between">
+            <span class="text-slate-700 flex items-center"><i class="fa-solid fa-file-pdf text-amber-600 mr-2"></i> Technical_Whitepaper.pdf</span>
+            <span class="px-2 py-0.5 rounded bg-amber-100 text-amber-800 text-[10px]">Parsed</span>
+          </div>
+          <div class="p-3.5 rounded-xl bg-slate-50 border border-panelborder flex items-center justify-between">
+            <span class="text-slate-700 flex items-center"><i class="fa-solid fa-video text-purple-600 mr-2"></i> YouTube Keynote Stream</span>
+            <span class="px-2 py-0.5 rounded bg-purple-100 text-purple-800 text-[10px]">Whisper ASR</span>
+          </div>
+          <div class="p-3.5 rounded-xl bg-slate-50 border border-panelborder flex items-center justify-between">
+            <span class="text-slate-700 flex items-center"><i class="fa-solid fa-image text-sky-600 mr-2"></i> Infographic_Schema.png</span>
+            <span class="px-2 py-0.5 rounded bg-sky-100 text-sky-800 text-[10px]">EasyOCR Active</span>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-slate-50 border border-panelborder space-y-2">
+          <div class="flex items-center justify-between text-xs font-mono text-slate-500">
+            <span>Hybrid Pipeline Status</span>
+            <span class="text-emerald-600 font-bold">Synthesized Successfully</span>
+          </div>
+          <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden border border-panelborder">
+            <div class="bg-gradient-to-r from-amber-500 via-purple-500 to-sky-500 h-full w-full rounded-full"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- Interactive Multi-Format Bento Grid Section -->
+  <main id="pipeline" class="relative z-20 max-w-7xl mx-auto px-6 py-20">
+    
+    <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+      <h2 class="text-3xl sm:text-5xl font-black font-display tracking-tight text-slate-900">Built Different. Built Better.</h2>
+      <p class="text-slate-600">Explore the modular capabilities powering ByteBrief's robust multi-modal architecture.</p>
+    </div>
+
+    <!-- Asymmetrical Bento Layout -->
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      
+      <!-- Card 1: Large Span (2 columns) -->
+      <div class="md:col-span-2 glass-card rounded-[32px] p-8 border border-panelborder hover:border-amber-400 transition-all duration-300 flex flex-col justify-between group shadow-sm">
+        <div>
+          <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-brain"></i>
+          </div>
+          <h3 class="text-2xl font-bold font-display text-slate-900 mb-3">Hybrid Extractive-Abstractive Core</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-6">
+            Pure abstractive models often hallucinate on long technical texts. ByteBrief first filters vital sentences using BERT, then rewrites them cleanly via Facebook BART for unbeatable factual fidelity.
+          </p>
+        </div>
+        <div class="flex items-center space-x-2 font-mono text-xs text-amber-700">
+          <span>Explore Algorithm Specs</span> <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+        </div>
+      </div>
+
+      <!-- Card 2: Single Column -->
+      <div class="glass-card rounded-[32px] p-8 border border-panelborder hover:border-purple-400 transition-all duration-300 flex flex-col justify-between group shadow-sm">
+        <div>
+          <div class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-700 flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-microphone-lines"></i>
+          </div>
+          <h3 class="text-xl font-bold font-display text-slate-900 mb-3">Whisper Speech-to-Text</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Directly ingest audio recordings or YouTube links with OpenAI Whisper offline transcription integration.
+          </p>
+        </div>
+        <span class="text-xs font-mono text-slate-500">ASR Optimized</span>
+      </div>
+
+      <!-- Card 3: Single Column -->
+      <div class="glass-card rounded-[32px] p-8 border border-panelborder hover:border-sky-400 transition-all duration-300 flex flex-col justify-between group shadow-sm">
+        <div>
+          <div class="w-14 h-14 rounded-2xl bg-sky-100 text-sky-700 flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-chart-pie"></i>
+          </div>
+          <h3 class="text-xl font-bold font-display text-slate-900 mb-3">Deep Text Analytics</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Extract KeyBERT keywords, sentiment polarity trends, and dynamic topic clusters automatically.
+          </p>
+        </div>
+        <span class="text-xs font-mono text-slate-500">Visual Insights</span>
+      </div>
+
+      <!-- Card 4: Single Column -->
+      <div class="glass-card rounded-[32px] p-8 border border-panelborder hover:border-emerald-400 transition-all duration-300 flex flex-col justify-between group shadow-sm">
+        <div>
+          <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-file-arrow-down"></i>
+          </div>
+          <h3 class="text-xl font-bold font-display text-slate-900 mb-3">Multi-Format Export</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Download your executive summaries instantly as polished PDF, DOCX, or clean TXT files.
+          </p>
+        </div>
+        <span class="text-xs font-mono text-slate-500">Instant Reports</span>
+      </div>
+
+      <!-- Card 5: Large Span (3 columns) -->
+      <div class="md:col-span-2 lg:col-span-3 glass-card rounded-[32px] p-8 border border-panelborder hover:border-amber-400 transition-all duration-300 flex flex-col justify-between group shadow-sm">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-terminal"></i>
+            </div>
+            <h3 class="text-2xl font-bold font-display text-slate-900 mb-3">Developer Quickstart</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Clone the open-source repository, install the Hugging Face transformer weights, and launch the Streamlit dashboard in under 3 minutes.
+            </p>
+          </div>
+          <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 font-mono text-xs text-amber-400 space-y-1.5 shadow-inner">
+            <p class="text-slate-500"># Clone & Initialize</p>
+            <p>git clone https://github.com/GZ30eee/bytebrief.git</p>
+            <p>pip install -r requirements.txt</p>
+            <p class="text-sky-400 font-bold pt-1">streamlit run app/main.py</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="relative z-20 border-t border-panelborder bg-panel py-12 text-center text-xs text-slate-600 shadow-inner">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>ByteBrief is open-source under the MIT License. Powered by Streamlit & Hugging Face.</p>
+      <div class="flex items-center space-x-4">
+        <a href="https://github.com/GZ30eee/bytebrief" target="_blank" class="hover:text-slate-900 transition-colors">GitHub Repository</a>
+        <span>•</span>
+        <a href="app/main.py" class="hover:text-slate-900 transition-colors">Streamlit App</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
