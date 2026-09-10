@@ -6,7 +6,7 @@ transformers
 torch
 easyocr
 Pillow
-numpy
+numpy<2.0
 youtube_transcript_api
 pytube
 spacy
@@ -16,7 +16,7 @@ python-pptx
 pymupdf
 whisper
 keybert
-gensim
+gensim==4.4.0
 matplotlib
 wordcloud
 plotly
