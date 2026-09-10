@@ -49,34 +49,49 @@ _kw_model = load_keybert()
 
 class Analytics:
     @staticmethod
+    def _get_nlp():
+        return load_nlp()
+
+    @staticmethod
+    def _get_sentiment():
+        return load_sentiment()
+
+    @staticmethod
+    def _get_kw_model():
+        return load_keybert()
+
+    @staticmethod
     def get_sentiment(text: str) -> dict:
-        if _sentiment is None:
+        sentiment = Analytics._get_sentiment()
+        if sentiment is None:
             return {"label": "N/A", "score": 0.0}
         try:
-            tokens = _sentiment.tokenizer(text, truncation=True, max_length=512, return_tensors="pt")["input_ids"][0]
-            truncated = _sentiment.tokenizer.decode(tokens, skip_special_tokens=True)
-            result = _sentiment(truncated)[0]
+            tokens = sentiment.tokenizer(text, truncation=True, max_length=512, return_tensors="pt")["input_ids"][0]
+            truncated = sentiment.tokenizer.decode(tokens, skip_special_tokens=True)
+            result = sentiment(truncated)[0]
             return {"label": result['label'], "score": result['score']}
         except Exception as e:
             logger.error(f"Sentiment analysis failed: {e}")
             return {"label": "Error", "score": 0.0}
-    
+
     @staticmethod
     def get_keywords(text: str, top_n: int = 10) -> list:
-        if _kw_model is None:
+        kw_model = Analytics._get_kw_model()
+        if kw_model is None:
             return []
         try:
-            return _kw_model.extract_keywords(text, top_n=top_n)
+            return kw_model.extract_keywords(text, top_n=top_n)
         except Exception as e:
             logger.error(f"Keyword extraction failed: {e}")
             return []
-    
+
     @staticmethod
     def get_topics(text: str, num_topics: int = 3) -> list:
-        if _nlp is None:
+        nlp = Analytics._get_nlp()
+        if nlp is None:
             return []
         try:
-            doc = _nlp(text)
+            doc = nlp(text)
             tokens = [token.lemma_ for token in doc if not token.is_stop and token.is_alpha]
             if len(tokens) < 10:
                 return []
@@ -87,7 +102,7 @@ class Analytics:
         except Exception as e:
             logger.error(f"Topic modeling failed: {e}")
             return []
-    
+
     @staticmethod
     def generate_wordcloud(text: str, width=800, height=400, background='white'):
         try:
@@ -99,7 +114,7 @@ class Analytics:
         except Exception as e:
             logger.error(f"Word cloud generation failed: {e}")
             return None
-    
+
     @staticmethod
     def plot_topic_distribution(topics: list):
         if not topics:
