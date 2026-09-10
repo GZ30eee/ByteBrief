@@ -15,18 +15,14 @@ logger = logging.getLogger(__name__)
 settings = get_settings()
 
 @lru_cache(maxsize=1)
+@lru_cache(maxsize=1)
 def load_nlp():
     try:
         return spacy.load("en_core_web_sm")
-    except OSError:
-        logger.warning("spaCy model 'en_core_web_sm' not found. Downloading...")
-        try:
-            spacy.cli.download("en_core_web_sm")
-            return spacy.load("en_core_web_sm")
-        except Exception as e:
-            logger.error(f"Failed to download spaCy model: {e}")
-            return None
-
+    except OSError as e:
+        logger.error(f"spaCy model not found: {e}")
+        return None
+    
 @lru_cache(maxsize=1)
 def load_sentiment():
     try:
