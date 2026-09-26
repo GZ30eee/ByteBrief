@@ -1,3 +1,6 @@
+https://docs.google.com/document/d/1dApXD4jKw1D7NeMp7lD-f6MLBwCDoK_iKRmMfF4hxhU/edit?tab=t.0
+
+
 <p align="center">
   <h1 align="center">ByteBrief</h1>
   <p align="center">
